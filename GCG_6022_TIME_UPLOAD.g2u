@@ -1,0 +1,856 @@
+﻿Program.Sub.ScreenSU.Start
+Gui.frmSelect..create(BaseForm)
+Gui.frmSelect..caption("Select File for Upload")
+Gui.frmSelect..size(6900,2130)
+Gui.frmSelect..minx(0)
+Gui.frmSelect..miny(0)
+Gui.frmSelect..position(0,0)
+Gui.frmSelect..event(UnLoad,Unload_Select)
+Gui.frmSelect..forecolor(0)
+Gui.frmSelect..fontstyle(False,False,False,False)
+Gui.frmSelect..BackColor(-2147483633)
+Gui.frmSelect..maxbutton(False)
+Gui.frmSelect..minbutton(False)
+Gui.frmSelect..mousepointer(0)
+Gui.frmSelect..sizeable(False)
+Gui.frmSelect..AlwaysOnTop(False)
+Gui.frmSelect..FontName("Tahoma")
+Gui.frmSelect..FontSize(8.25)
+Gui.frmSelect..ControlBox(True)
+Gui.frmSelect..Moveable(True)
+Gui.frmSelect..ShowInTaskBar(True)
+Gui.frmSelect..TitleBar(True)
+Gui.frmSelect.lblFile.create(label,"File Name:",True,1935,255,1,160,65,True,0,"Arial",8,-2147483633,0,0)
+Gui.frmSelect.lblFile.defaultvalue("")
+Gui.frmSelect.lblFile.BorderStyle(0)
+Gui.frmSelect.txtFile.create(textbox,"",True,5295,300,0,150,300,True,0,"Arial",8,-2147483643,1)
+Gui.frmSelect.txtFile.defaultvalue("")
+Gui.frmSelect.cmdBrowse.create(button)
+Gui.frmSelect.cmdBrowse.caption("Browse")
+Gui.frmSelect.cmdBrowse.size(870,330)
+Gui.frmSelect.cmdBrowse.position(5560,290)
+Gui.frmSelect.cmdBrowse.event(Click,cmdBrowse_click)
+Gui.frmSelect.cmdBrowse.defaultvalue("")
+Gui.frmSelect.cmdBrowse.Enabled(True)
+Gui.frmSelect.cmdBrowse.Visible(True)
+Gui.frmSelect.cmdBrowse.Zorder(0)
+Gui.frmSelect.cmdBrowse.FontName("Tahoma")
+Gui.frmSelect.cmdBrowse.FontSize(8.25)
+Gui.frmSelect.comboSheet.create(combobox)
+Gui.frmSelect.comboSheet.size(5280,330)
+Gui.frmSelect.comboSheet.position(155,940)
+Gui.frmSelect.comboSheet.defaultvalue("")
+Gui.frmSelect.comboSheet.Enabled(True)
+Gui.frmSelect.comboSheet.Visible(True)
+Gui.frmSelect.comboSheet.Zorder(0)
+Gui.frmSelect.comboSheet.FontName("Tahoma")
+Gui.frmSelect.comboSheet.FontSize(8.25)
+Gui.frmSelect.lblTab.create(label,"Sheet:",True,1935,255,1,160,665,True,0,"Arial",8,-2147483633,0,0)
+Gui.frmSelect.lblTab.defaultvalue("")
+Gui.frmSelect.lblTab.BorderStyle(0)
+Gui.frmSelect.cmdOpen.create(button)
+Gui.frmSelect.cmdOpen.caption("Open")
+Gui.frmSelect.cmdOpen.size(870,330)
+Gui.frmSelect.cmdOpen.position(5570,965)
+Gui.frmSelect.cmdOpen.event(Click,cmdOpen_click)
+Gui.frmSelect.cmdOpen.defaultvalue("")
+Gui.frmSelect.cmdOpen.Enabled(True)
+Gui.frmSelect.cmdOpen.Visible(True)
+Gui.frmSelect.cmdOpen.Zorder(0)
+Gui.frmSelect.cmdOpen.FontName("Tahoma")
+Gui.frmSelect.cmdOpen.FontSize(8.25)
+Gui.frmPreview..create(DashForm)
+Gui.frmPreview..caption("Time Sheet Preview")
+Gui.frmPreview..size(19080,9000)
+Gui.frmPreview..minx(0)
+Gui.frmPreview..miny(0)
+Gui.frmPreview..position(0,0)
+Gui.frmPreview..event(UnLoad,Unload_Preview)
+Gui.frmPreview..forecolor(0)
+Gui.frmPreview..fontstyle(False,False,False,False)
+Gui.frmPreview..BackColor(-2147483633)
+Gui.frmPreview..mousepointer(0)
+Gui.frmPreview..AlwaysOnTop(False)
+Gui.frmPreview..FontName("Tahoma")
+Gui.frmPreview..FontSize(8.25)
+Gui.frmPreview..ControlBox(True)
+Gui.frmPreview..MaxButton(True)
+Gui.frmPreview..MinButton(True)
+Gui.frmPreview..Moveable(True)
+Gui.frmPreview..Sizeable(True)
+Gui.frmPreview..ShowInTaskBar(True)
+Gui.frmPreview..TitleBar(True)
+Gui.frmPreview.cmdLoad.create(button)
+Gui.frmPreview.cmdLoad.caption("Load")
+Gui.frmPreview.cmdLoad.size(1275,375)
+Gui.frmPreview.cmdLoad.position(17655,8055)
+Gui.frmPreview.cmdLoad.event(Click,cmdLoad_click)
+Gui.frmPreview.cmdLoad.defaultvalue("")
+Gui.frmPreview.cmdLoad.Anchor(10)
+Gui.frmPreview.cmdLoad.Enabled(True)
+Gui.frmPreview.cmdLoad.Visible(True)
+Gui.frmPreview.cmdLoad.Zorder(0)
+Gui.frmPreview.cmdLoad.FontName("Tahoma")
+Gui.frmPreview.cmdLoad.FontSize(8.25)
+Gui.frmPreview.gsgcUpload.Create(GsGridControl)
+Gui.frmPreview.gsgcUpload.Size(18960,7890)
+Gui.frmPreview.gsgcUpload.Position(0,90)
+Gui.frmPreview.gsgcUpload.Anchor(15)
+Gui.frmPreview.gsgcUpload.Enabled(True)
+Gui.frmPreview.gsgcUpload.Visible(True)
+Gui.frmPreview.gsgcUpload.Zorder(0)
+Gui.frmPreview.gsgcUpload.Dock(0)
+Gui.frmPreview.cmdExport.Create(Button)
+Gui.frmPreview.cmdExport.Size(1275,375)
+Gui.frmPreview.cmdExport.Position(210,8040)
+Gui.frmPreview.cmdExport.Anchor(6)
+Gui.frmPreview.cmdExport.Caption("Export")
+Gui.frmPreview.cmdExport.DefaultValue("")
+Gui.frmPreview.cmdExport.Event(Click,cmdExport_Click)
+Gui.frmPreview.cmdExport.Enabled(True)
+Gui.frmPreview.cmdExport.Visible(True)
+Gui.frmPreview.cmdExport.Zorder(0)
+Gui.frmPreview.cmdExport.FontName("Tahoma")
+Gui.frmPreview.cmdExport.FontSize(8.25)
+Program.Sub.ScreenSU.End
+
+Program.Sub.Preflight.Start
+F.Data.DataTable.Create("dtUpload",True)
+F.Data.DataTable.AddColumn("dtUpload","Employee",String)
+F.Data.DataTable.AddColumn("dtUpload","Employee_Exists",Boolean)
+F.Data.DataTable.AddColumn("dtUpload","Employee_Active",Boolean)
+F.Data.DataTable.AddColumn("dtUpload","Job",String)
+F.Data.DataTable.AddColumn("dtUpload","Suffix",String)
+F.Data.DataTable.AddColumn("dtUpload","Job_Exists",Boolean)
+F.Data.DataTable.AddColumn("dtUpload","Job_Active",Boolean)
+F.Data.DataTable.AddColumn("dtUpload","Sequence",String)
+F.Data.DataTable.AddColumn("dtUpload","Sequence_Exists",Boolean)
+F.Data.DataTable.AddColumn("dtUpload","Sequence_Active",Boolean)
+F.Data.DataTable.AddColumn("dtUpload","Workcenter",String)
+F.Data.DataTable.AddColumn("dtUpload","Type",String)
+F.Data.DataTable.AddColumn("dtUpload","Type_Valid",Boolean)
+F.Data.DataTable.AddColumn("dtUpload","Hours",String)
+F.Data.DataTable.AddColumn("dtUpload","Date",DateTime)
+F.Data.DataTable.AddColumn("dtUpload","Date_String",String)
+F.Data.DataTable.AddColumn("dtUpload","Date_Valid",Boolean)
+F.Data.DataTable.AddColumn("dtUpload","Closed",String)
+F.Data.DataTable.AddColumn("dtUpload","Start",String)
+F.Data.DataTable.AddColumn("dtUpload","Stop",String)
+F.Data.DataTable.AddColumn("dtUpload","LMO",String)
+F.Data.DataTable.AddColumn("dtUpload","GoodPcs",String)
+F.Data.DataTable.AddColumn("dtUpload","ScrapPcs",String)
+F.Data.DataTable.AddColumn("dtUpload","ScrapCode",String)
+F.Data.DataTable.AddColumn("dtUpload","Employee_Name",String)
+Program.Sub.Preflight.End
+
+Program.Sub.Main.Start
+'call LYN010-52820201819-0, quote 12335
+' This script will allow the user to select an Excel file
+' This script will allow the user to select the tab to upload from the Excel file
+' This script will create job detail records and time/attendance records
+' This script will present the user with a flex grid of what will be uploaded
+' This script will upload the records to job detail and time/attendance when the Update button is clicked
+
+' Display the open spreadsheet form
+Gui.frmSelect.txtFile.Event(DragDropFile,txtFile_DragDropFile)
+Gui.frmSelect..Show
+
+Program.Sub.Main.End
+
+Program.Sub.cmdBrowse_click.Start
+' This subroutine will present the user with a file browser dialog
+
+V.Local.sFile.Declare
+V.Local.sWorksheets.Declare
+V.Local.iFor.Declare
+
+F.Intrinsic.Control.BlockEvents
+
+' Open the file dialog
+F.Intrinsic.UI.ShowOpenFileDialog("","Excel Workbook|*.xlsx;*.xls","",V.Local.sFile)
+
+' Populate txtFile if there is a return
+F.Intrinsic.Control.If(V.Local.sFile,<>,"***CANCEL***")
+	Gui.frmSelect.txtFile.Text(V.local.sFile)
+	' Create the Excel Object
+	F.Automation.MSExcel.CreateAppObject("MSExcel")
+	' Open the Workbook
+	F.Automation.MSExcel.OpenWorkbook("MSExcel","Timesheet",V.Local.sFile)
+	' Get the Worksheet Names
+	F.Automation.MSExcel.EnumerateWorksheets("Timesheet",v.Local.sWorksheets)
+	' Split the worksheet string
+	F.Intrinsic.String.Split(V.Local.sWorksheets,"*!*",V.Local.sWorksheets)
+	' Add the worksheet names to the combo box
+	F.Intrinsic.Control.For(V.Local.iFor,V.Local.sWorksheets.LBound,V.Local.sWorksheets.UBound,1)
+		Gui.frmSelect.comboSheet.AddItem(V.Local.sWorksheets(v.Local.iFor))
+	F.Intrinsic.Control.Next(V.Local.iFor)
+	
+	F.Automation.MSExcel.OpenWorksheet("Timesheet","Worksheet1",1)
+	' Destroy the Excel Objects
+	F.Automation.MSExcel.DestroyAllObjects("MSExcel","Timesheet","Worksheet1")
+	' Default to the first sheet
+	Gui.frmSelect.comboSheet.ListIndex(0)
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.UnBlockEvents
+
+Program.Sub.cmdBrowse_click.End
+
+Program.Sub.cmdOpen_click.Start
+' This subroutine will open the file and load the contents to the time UDT
+
+V.Local.iFor.Declare
+V.Local.iSheet.Declare
+V.Local.sData.Declare
+V.Local.iRowCnt.Declare
+V.Local.sLastEmp.Declare
+V.Local.sLastDate.Declare
+V.Local.sUDT.Declare
+V.Local.sTitles.Declare
+V.Local.sCombWO.Declare
+V.Local.sJob.Declare
+V.Local.sSuffix.Declare
+V.Local.sSeq.Declare
+V.Local.bTest.Declare
+V.Local.bOnFirst.Declare
+
+'New variables - BixRB
+V.Local.sSQL.Declare
+V.Local.sEmployeeExists.Declare
+V.Local.sEmployeeActive.Declare
+V.Local.sJobExists.Declare
+V.Local.sJobActive.Declare
+V.Local.sSequenceExists.Declare
+V.Local.sSequenceActive.Declare
+V.Local.sTypeValid.Declare
+V.Local.sDateValid.Declare
+V.Local.bDateValid.Declare
+v.Local.sWC.Declare
+V.Local.sEmpName.Declare
+
+' Hide the File Open Dialog
+Gui.frmSelect..Visible(0)
+
+' Show the wait dialog
+F.Intrinsic.UI.InvokeWaitDialog("Reading File","Time Upload")
+
+' First Run
+V.Local.bOnFirst.Set(False)
+
+' Create the Excel Object
+F.Automation.MSExcel.CreateAppObject("MSExcel")
+
+' Open the file
+F.Automation.MSExcel.OpenWorkbook("MSExcel","Timesheet",V.Screen.frmSelect!txtFile.Text)
+
+' Get the worksheet number
+V.Local.iSheet.Set(V.Screen.frmSelect!comboSheet.ItemData)
+
+' Open the worksheet
+F.Automation.MSExcel.OpenWorksheet("Timesheet","TimeSheet1",V.Local.iSheet.++)
+
+' Get the number of rows
+F.Automation.MSExcel.RowCount("TimeSheet1",V.Local.iRowCnt)
+
+' Initialize the UDT
+'V.uGlobal.uTime.Redim(-1,-1)
+
+' Loop through the rows starting at 2 through row count minus 1
+' Subtract 1 from the total row count
+'F.Intrinsic.Math.Sub(V.Local.iRowCnt,1,V.Local.iRowCnt)
+F.ODBC.Connection!con.OpenCompanyConnection
+F.Intrinsic.Control.For(V.Local.iFor,2,V.Local.iRowCnt,1)
+	' Read columns A - L into sData
+	F.Automation.MSExcel.ReadRow("TimeSheet1",V.Local.iFor,1,13,V.Local.sData)
+	' Split the string
+	F.Intrinsic.String.Split(V.Local.sData,"*!*",V.Local.sData)
+	' Populate blank dates
+	F.Intrinsic.Control.If(V.Local.sData(6).Trim,=,"")
+		V.Local.sData(6).Set(V.Local.sLastDate)
+	F.Intrinsic.Control.Else
+		V.Local.sLastDate.Set(V.Local.sData(6))
+	F.Intrinsic.Control.EndIf
+	'Check if date is valid - BixRB
+	F.Intrinsic.Date.IsDate(V.Local.sData(6),V.Local.bDateValid)
+	F.Intrinsic.Control.If(V.Local.bDateValid)
+		V.Local.sDateValid.Set("True")
+	F.Intrinsic.Control.Else
+		V.Local.sDateValid.Set("False")
+	F.Intrinsic.Control.EndIf
+	' Populate blank Employee
+	F.Intrinsic.String.LPad(V.Local.sData(1),"0",5,V.Local.sData(1))
+	F.Intrinsic.Control.If(V.Local.sData(1).Trim,=,"")
+		V.Local.sData(1).Set(V.Local.sLastEmp)
+	F.Intrinsic.Control.Else
+		V.Local.sLastEmp.Set(V.Local.sData(1))
+	F.Intrinsic.Control.EndIf
+		
+	'Check if employee exists and is active 
+	F.Intrinsic.String.Build("select DATE_TERMINATION,NAME from V_EMPLOYEE_MSTR where EMPLOYEE = '{0}';",V.Local.sData(1).Trim,V.Local.sSQL)
+	F.ODBC.Connection!con.ExecuteAndReturn(V.Local.sSQL,V.Local.sSQL)
+	F.Intrinsic.String.Split(v.Local.sSQL,"*!*",v.Local.sSQL)
+	F.Intrinsic.Control.If(V.Ambient.ExecuteAndReturnEOF)
+		'Lookup GS employee ID in comments_1 field
+		F.Intrinsic.String.Build("select EMPLOYEE,NAME from V_EMPLOYEE_MSTR where COMMENTS_1 = '{0}';",V.Local.sData(1).Trim,V.Local.sSQL)
+		F.ODBC.Connection!con.ExecuteAndReturn(V.Local.sSQL,V.Local.sSQL)
+		F.Intrinsic.Control.If(V.Ambient.ExecuteAndReturnEOF)
+		'Employee does not exist still
+		V.Local.sEmployeeExists.Set("False")
+		V.Local.sEmployeeActive.Set("False")
+		F.Intrinsic.Control.Else
+			F.Intrinsic.String.Split(v.Local.sSQL,"*!*",v.Local.sSQL)
+			v.Local.sEmpName.Set(v.Local.sSQL(1))
+			F.Intrinsic.String.Replace(v.Local.sEmpName,"#$#","",v.Local.sEmpName)
+			v.Local.sLastEmp.Set(v.Local.sSQL(0))
+			V.Local.sEmployeeExists.Set("True")
+			V.Local.sEmployeeActive.Set("True")
+		F.Intrinsic.Control.EndIf
+'		'Employee does not exist - BixRB
+'		V.Local.sEmployeeExists.Set("False")
+'		V.Local.sEmployeeActive.Set("False")
+	F.Intrinsic.Control.ElseIf(V.Local.sSQL(0),=,"1/1/1900")
+		'Employee is active - BixRB
+		'F.Intrinsic.String.Split(v.Local.sSQL,"*!*",v.Local.sSQL)
+		v.Local.sEmpName.Set(v.Local.sSQL(1))
+		F.Intrinsic.String.Replace(v.Local.sEmpName,"#$#","",v.Local.sEmpName)
+		V.Local.sEmployeeExists.Set("True")
+		V.Local.sEmployeeActive.Set("True")
+	F.Intrinsic.Control.Else
+		'Employee is terminated - BixRB
+		F.Intrinsic.String.Split(v.Local.sSQL,"*!*",v.Local.sSQL)
+		v.Local.sEmpName.Set(v.Local.sSQL(1))
+		F.Intrinsic.String.Replace(v.Local.sEmpName,"#$#","",v.Local.sEmpName)		
+		V.Local.sEmployeeExists.Set("True")
+		V.Local.sEmployeeActive.Set("False")
+	F.Intrinsic.Control.EndIf
+	' Split Job, Suffix, and Sequence
+	F.Intrinsic.String.Split(V.Local.sData(12),"-",V.Local.sCombWO)
+	' Store Job
+	V.Local.sJob.Set(V.Local.sCombWO(0))
+	v.Local.sSuffix.Set(v.Local.sCombWO(1))
+	V.Local.sCombWO.RedimPreserve(0,2)
+
+	'Check if job exists - BixRB
+	F.Intrinsic.String.Build("select DATE_CLOSED from V_JOB_HEADER where JOB = '{0}' and SUFFIX = '{1}';",V.Local.sJob,V.Local.sSuffix,V.Local.sSQL)
+	F.ODBC.Connection!con.ExecuteAndReturn(V.Local.sSQL,V.Local.sSQL)
+	F.Intrinsic.Control.If(V.Ambient.ExecuteAndReturnEOF)
+		'Job does not exist - BixRB
+		V.Local.sJobExists.Set("False")
+		V.Local.sJobActive.Set("False")
+		V.Local.sSequenceExists.Set("False")
+		V.Local.sSequenceActive.Set("False")
+	F.Intrinsic.Control.ElseIf(V.Local.sSQL,=,"1/1/1900 12:00:00 AM")
+		'Job exists, check if sequence exists - BixRB
+		V.Local.sJobExists.Set("True")
+		V.Local.sJobActive.Set("True")
+		
+		'BS - lookup seq by Workcenter (Group)
+		V.Local.sWC.Set(V.Local.sData(5))
+		F.Intrinsic.String.Build("select MACHINE from V_WORKCENTERS where MACHINE = '{0}'",V.Local.sWC,V.Local.sSQL)
+		F.ODBC.Connection!con.ExecuteAndReturn(V.Local.sSQL,V.Local.sSQL)
+		F.Intrinsic.Control.If(V.Ambient.ExecuteAndReturnEOF)
+			V.Local.sSequenceExists.Set("False")
+			V.Local.sSequenceActive.Set("False")
+		F.Intrinsic.Control.Else		
+			F.Intrinsic.String.Build("select FLAG_CLOSED,SEQ from V_JOB_OPERATIONS where JOB = '{0}' and SUFFIX = '{1}' and PART = '{2}';",V.Local.sJob,V.Local.sSuffix,V.Local.sWC.Trim,V.Local.sSQL)
+			F.ODBC.Connection!con.ExecuteAndReturn(V.Local.sSQL,V.Local.sSQL)
+			f.Intrinsic.String.Split(v.Local.sSQL,"*!*",v.Local.sSQL)
+			v.Local.sSeq.Set(v.Local.sSQL(1))
+			F.Intrinsic.String.Replace(v.Local.sSeq,"#$#","",v.Local.sSeq)
+			F.Intrinsic.Control.If(V.Ambient.ExecuteAndReturnEOF)
+				'Sequence does not exist - BS use 995000
+				v.Local.sSeq.Set("996000")
+				V.Local.sSequenceExists.Set("True")
+				V.Local.sSequenceActive.Set("True")
+			F.Intrinsic.Control.ElseIf(V.Local.sSQL(0),!=,"Y")
+				'Sequence exists - BixRB
+				V.Local.sSequenceExists.Set("True")
+				V.Local.sSequenceActive.Set("True")
+			F.Intrinsic.Control.Else
+				'Sequence closed - BixRB
+				V.Local.sSequenceExists.Set("True")
+				V.Local.sSequenceActive.Set("False")
+			F.Intrinsic.Control.EndIf
+		F.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.Else
+		'Job closed - BixRB
+		V.Local.sJobExists.Set("True")
+		V.Local.sJobActive.Set("False")
+		F.Intrinsic.String.Build("select FLAG_CLOSED from V_JOB_OPERATIONS where JOB = '{0}' and SUFFIX = '{1}' and SEQ = '{2}';",V.Local.sJob,V.Local.sSuffix,V.Local.sSeq,V.Local.sSQL)
+		F.ODBC.Connection!con.ExecuteAndReturn(V.Local.sSQL,V.Local.sSQL)
+		F.Intrinsic.Control.If(V.Ambient.ExecuteAndReturnEOF)
+			'Sequence does not exist - BixRB
+			V.Local.sSequenceExists.Set("False")
+			V.Local.sSequenceActive.Set("False")
+		F.Intrinsic.Control.ElseIf(V.Local.sSQL,!=,"Y")
+			'Sequence exists - BixRB
+			V.Local.sSequenceExists.Set("True")
+			V.Local.sSequenceActive.Set("True")
+		F.Intrinsic.Control.Else
+			'Sequence closed - BixRB
+			V.Local.sSequenceExists.Set("True")
+			V.Local.sSequenceActive.Set("False")
+		F.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.EndIf
+
+	F.Intrinsic.String.Build("select JOB from V_IND_LBR_ACCTS where JOB = '{0}' and SUFFIX = '{1}' and SEQUENCE = '{2}';",V.Local.sJob,V.Local.sSuffix,V.Local.sSeq,V.Local.sSQL)
+	F.ODBC.Connection!con.ExecuteAndReturn(V.Local.sSQL,V.Local.sSQL)
+	F.Intrinsic.Control.If(V.Ambient.ExecuteAndReturnEOF)	
+	' Set Labor Type - D
+		V.Local.sData(10).Set("D")
+		V.Local.sTypeValid.Set("True")
+	F.Intrinsic.Control.Else	
+		V.Local.sData(10).Set("I")
+		V.Local.sTypeValid.Set("True")
+	f.Intrinsic.Control.EndIf
+
+	' Check for blank hours, work order, and work center
+'	F.Intrinsic.Control.If(v.Local.sData(4).Trim,=,"",or,v.Local.sData(5).Trim,=,"")
+'	F.Intrinsic.Control.ElseIf(V.Local.sData(7).Trim,=,"")
+	F.Intrinsic.Control.If(V.Local.sData(12).Trim,!=,"",and,V.Local.sData(5).Trim,!=,"",V.Local.sData(11).Trim,!=,"")
+		' Build the string to load
+		F.Intrinsic.String.Build("{0}*!*{1}*!*{2}*!*{3}*!*{4}*!*{5}*!*{17}*!*{7}*!*N*!* *!* *!*R*!*0*!*0*!**!*{8}*!*{9}*!*{10}*!*{11}*!*{12}*!*{13}*!*{14}*!*{15}*!*{16}",V.Local.sData(6),V.Local.sLastEmp,V.Local.sJob,V.Local.sSuffix,V.Local.sSeq,V.Local.sData(5),V.Local.sData(6),V.Local.sData(11),V.Local.sJobExists,V.Local.sSequenceExists,V.Local.sEmployeeExists,V.Local.sEmployeeActive,V.Local.sTypeValid,V.Local.sDateValid,V.Local.sJobActive,V.Local.sSequenceActive,v.Local.sEmpName,V.Local.sData(10),V.Local.sUDT)
+		' Build the UDT titles string
+		V.Local.sTitles.Set("Date*!*Employee*!*Job*!*Suffix*!*Sequence*!*WorkCenter*!*Type*!*Hours*!*Closed*!*Start*!*Stop*!*LMO*!*GoodPcs*!*ScrapPcs*!*ScrapCode*!*Job_Exists*!*Sequence_Exists*!*Employee_Exists*!*Employee_Active*!*Type_Valid*!*Date_Valid*!*Job_Active*!*Sequence_Active*!*Employee_Name")
+		' Load the string into the Time UDT
+		F.Data.DataTable.CreateFromString("dtUploadTemp",V.Local.sUDT,V.Local.sTitles,"DateTime*!*String*!*String*!*String*!*String*!*String*!*String*!*String*!*String*!*String*!*String*!*String*!*String*!*String*!*String*!*Boolean*!*Boolean*!*Boolean*!*Boolean*!*Boolean*!*Boolean*!*Boolean*!*Boolean*!*String","*!*","!*!")
+		F.Data.DataTable.Merge("dtUploadTemp","dtUpload",True,2)
+		F.Data.DataTable.Close("dtUploadTemp")
+'		F.Intrinsic.Variable.LoadUDTFromString(V.uGlobal.uTime,V.Local.sTitles,V.Local.sUDT,"!*!","*!*",V.Local.bOnFirst)
+		' Set test for first loop
+		V.Local.bOnFirst.Set(True)
+	F.Intrinsic.Control.EndIf
+	V.Local.sSeq.Set("")
+	v.Local.sEmpName.Set("")
+F.Intrinsic.Control.Next(V.Local.iFor)
+F.ODBC.Connection!con.Close
+
+' Close the spreadsheet
+F.Automation.MSExcel.DestroyAllObjects("MSExcel","Timesheet","Timesheet1")
+
+F.Intrinsic.UI.CloseWaitDialog
+' Present the user with the results of the import
+F.Intrinsic.Control.CallSub(Displaygrid)
+
+Program.Sub.cmdOpen_click.End
+
+Program.Sub.Unload_Select.Start
+' This program unloads the open dialog
+
+' Hide the form
+Gui.frmSelect..Visible(0)
+
+' End the program
+F.Intrinsic.Control.End
+
+Program.Sub.Unload_Select.End
+
+Program.Sub.CreateFile.Start
+' This subroutine will read the Time UDT, write the contents to a tab delimited file called cccTTTmopen.txt, and then upload the file using JB0455
+' Tabs are as follows:
+' 1 - Date (MMDDYY)
+' 2 - Emp
+' 3 - Job
+' 4 - Suffix
+' 5 - Sequence
+' 6 - Workcenter
+' 7 - Hours (#0.0000)
+' 8 - Closed (Y or N)
+' 9 - Type (I or D)
+' 10 - Start Time
+' 11 - Finish Time
+' 12 - Rate Type (R) - using LMO element in UDT
+' 13 - Good Pieces
+' 14 - Scrap Pieces
+' 15 - Scrap Code
+
+V.Local.bExists.Declare
+V.Local.bOnFirst.Declare
+V.Local.iFor.Declare
+V.Local.iPosition.Declare
+V.Local.sDate.Declare
+V.Local.sDateMsg.Declare
+V.Local.sEmp.Declare
+V.Local.sEnd.Declare
+V.Local.fEndDec.Declare
+V.Local.sEndDec.Declare
+V.Local.sEndHH.Declare
+V.Local.fEndMM.Declare
+V.Local.sEndMM.Declare
+V.Local.sFile.Declare
+V.Local.sMessage.Declare
+V.Local.sStart.Declare
+V.Local.sStartDec.Declare
+V.Local.sStartHH.Declare
+V.Local.sStartMM.Declare
+V.Local.sString.Declare
+V.Local.sTimeAcc.Declare
+
+V.Local.bOnFirst.Set(False)
+
+V.Local.sHours.Declare
+V.Local.fHours.Declare
+V.Local.dDate.Declare
+
+' Create the file name string
+F.Intrinsic.String.Build("{0}\{1}{2}MOPEN.TXT",V.Caller.FilesDir,V.Caller.CompanyCode,V.Caller.Terminal,V.Local.sFile)
+' Check to see if the file exists
+F.Intrinsic.File.Exists(V.Local.sFile,V.Local.bExists)
+' Delete the file if it exists
+F.Intrinsic.Control.If(V.Local.bExists,=,True)
+	F.Intrinsic.File.DeleteFile(V.Local.sFile)
+F.Intrinsic.Control.EndIf
+
+F.Data.DataView.Create("dtUpload","dvValid")
+F.Data.DataView.SetFilter("dtUpload","dvValid","[Employee_Exists] and [Employee_Active] and [Job_Exists] and [Job_Active] and [Sequence_Exists] and [Sequence_Active] and [Type_Valid] and [Date_Valid]")
+
+F.Data.DataTable.SetValue("dtUpload",-1,"Employee_Exists",True,"Employee_Active",True,"Job_Exists",True,"Job_Active",True,"Sequence_Exists",True,"Sequence_Active",True)
+' Loop through the UDT and write the string to the file
+F.Intrinsic.Control.For(V.Local.iFor,0,V.DataView.dtUpload!dvValid.RowCount--,1)
+	' Format the date in MMDDYY Format
+	V.Local.dDate.Set(V.DataView.dtUpload!dvValid(V.Local.iFor).Date!FieldVal)
+	F.Data.DataView.SetValue("dtUpload","dvValid",V.Local.iFor,"Date_String",V.Local.dDate.FormatMMDDYY)
+	' Set the start and end times
+	' Check to see if it is a new employee or new date
+	F.Intrinsic.Control.If(V.DataView.dtUpload!dvValid(V.Local.iFor).Employee!FieldVal,=,V.Local.sEmp,and,V.DataView.dtUpload!dvValid(V.Local.iFor),=,v.Local.sDate)
+		' Set the start time to the previous end time
+		V.Local.sStartHH.Set(V.Local.sEndHH)
+		V.Local.sStartMM.Set(V.Local.sEndMM)
+		V.Local.sStartDec.Set(V.Local.sEndDec)
+	F.Intrinsic.Control.Else
+		' Set start time to 00:00 if a new employee
+		V.Local.sStartHH.Set("00")
+		V.Local.sStartMM.Set("00")
+		V.Local.sStartDec.Set("0")
+	F.Intrinsic.Control.EndIf
+	' Calculate End Time
+	' Add the decimal hours to the decimal start time
+	F.Intrinsic.Math.Add(V.Local.sStartDec,V.DataView.dtUpload!dvValid(V.Local.iFor).Hours!FieldValFloat,V.Local.sEndDec)
+	' Round to two decimal places
+	F.Intrinsic.Math.Round(V.Local.sEndDec.Float,2,V.Local.fEndDec)
+	' Format as 00.00
+	F.Intrinsic.String.Format(V.Local.fEndDec,"00.00",V.Local.sEndDec)
+	' Take the left two for End HH
+	F.Intrinsic.String.Left(V.Local.sEndDec,2,V.Local.sEndHH)
+	' Calculate End MM
+	' Find the number of minutes
+	F.Intrinsic.Math.Sub(V.Local.sEndDec,V.Local.sEndHH,V.Local.sEndMM)
+	' Convert Decimal Minutes to minutes
+	F.Intrinsic.Math.Mult(V.Local.sEndMM,60,V.Local.sEndMM)
+	' Round to the nearest minute
+	F.Intrinsic.Math.Round(V.Local.sEndMM.Float,0,V.Local.fEndMM)
+	' Format minutes as MM
+	F.Intrinsic.String.Format(V.Local.fEndMM,"00",V.Local.sEndMM)
+	' Put the Hours and Minutes together for start time
+	F.Intrinsic.String.Concat(V.Local.sStartHH,V.Local.sStartMM,V.Local.sStart)
+	' Put the Hours and Minutes together for end time
+	F.Intrinsic.String.Concat(V.Local.sEndHH,V.Local.sEndMM,V.Local.sEnd)
+	' Notify the user if End Time is Greater than 2359 and end if it is
+	F.Intrinsic.Control.If(V.Local.sEnd,>,"2359")
+		F.Intrinsic.String.Build("Time for Employee {0} on {1} is Greater than 24 Hours!",V.DataView.dtUpload!dvValid(V.Local.iFor).Employee!FieldVal,V.Local.dDate.FormatMM/DD/YYYY,V.Local.sMessage)
+		F.Intrinsic.UI.Msgbox(V.Local.sMessage,"Time Upload")
+		F.Intrinsic.Control.End
+
+	F.Intrinsic.Control.EndIf
+	' Round and Format Hours
+	F.Intrinsic.Math.Round(V.DataView.dtUpload!dvValid(V.Local.iFor).Hours!FieldValFloat,2,V.Local.fHours)
+	F.Intrinsic.String.Format(V.Local.fHours,"#0.0000",V.Local.sHours)
+	' Set sDate to the current date element in the UDT
+	V.Local.sDate.Set(V.DataView.dtUpload!dvValid(V.Local.iFor).Date_String!FieldVal)
+	' Set sEmp to the current employee element in the UDT
+	V.Local.sEmp.Set(V.DataView.dtUpload!dvValid(V.Local.iFor).Employee!FieldVal)
+	' Build the string for the file
+	F.Intrinsic.String.Build("{1}{0}{2}{0}{3}{0}{4}{0}{5}{0}{6}{0}{7}{0}{8}",V.Ambient.Tab,V.Local.sDate,V.DataView.dtUpload!dvValid(V.Local.iFor).Employee!FieldVal,V.DataView.dtUpload!dvValid(V.Local.iFor).Job!FieldVal,V.DataView.dtUpload!dvValid(V.Local.iFor).Suffix!FieldVal,V.DataView.dtUpload!dvValid(V.Local.iFor).Sequence!FieldVal,V.DataView.dtUpload!dvValid(V.Local.iFor).WorkCenter!FieldVal,V.Local.sHours,V.DataView.dtUpload!dvValid(V.Local.iFor).Closed!FieldVal,V.Local.sString)
+	F.Intrinsic.String.Build("{1}{0}{9}{0}{2}{0}{3}{0}{4}{0}{5}{0}{6}{0}{7}",V.Ambient.Tab,V.Local.sString,V.local.sStart,V.Local.sEnd,V.DataView.dtUpload!dvValid(V.Local.iFor).LMO!FieldVal,V.DataView.dtUpload!dvValid(V.Local.iFor).GoodPcs!FieldVal,V.DataView.dtUpload!dvValid(V.Local.iFor).ScrapPcs!FieldVal,V.DataView.dtUpload!dvValid(V.Local.iFor).ScrapCode!FieldVal,V.Ambient.NewLine,V.DataView.dtUpload!dvValid(V.Local.iFor).Type!FieldVal,V.Local.sString)
+	' Load the string to the file
+	F.Intrinsic.Control.If(V.Local.bOnFirst,=,False)
+		F.Intrinsic.File.String2File(V.Local.sFile,V.Local.sString)
+	F.Intrinsic.Control.Else
+		F.Intrinsic.File.Append2FileNewLine(V.Local.sFile,V.Local.sString)
+	F.Intrinsic.Control.EndIf
+	V.Local.bOnFirst.Set(True)
+F.Intrinsic.Control.Next(V.Local.iFor)
+
+Program.Sub.CreateFile.End
+
+Program.Sub.UploadFile.Start
+' Call JB0455 to upload the file to Global Shop
+
+V.Local.sFile.Declare
+
+' Create the file string
+F.Intrinsic.String.Build("{0}{1}MOPEN.TXT",V.Caller.CompanyCode,V.Caller.Terminal,V.Local.sFile)
+' Call JB0455
+
+F.Intrinsic.Task.LaunchGSSSync("JB0455","-c",V.Local.sFile)
+
+Program.Sub.UploadFile.End
+
+Program.Sub.DisplayGrid.Start
+' This Subroutine will create the build styles for the flex grid on the preview form and then present the form to the user
+
+V.Local.iVisibleIndex.Declare
+
+Gui.frmPreview.gsgcUpload.AddGridviewFromDatatable("gvUpload","dtUpload")
+
+Gui.frmPreview.gsgcUpload.SetGridviewProperty("gvUpload","Editable",False)
+Gui.frmPreview.gsgcUpload.SetGridviewProperty("gvUpload","AllowColumnResizing",True)
+Gui.frmPreview.gsgcUpload.SetGridviewProperty("gvUpload","AllowColumnMoving",True)
+Gui.frmPreview.gsgcUpload.SetGridviewProperty("gvUpload","MultiSelectMode",1)
+Gui.frmPreview.gsgcUpload.SetGridviewProperty("gvUpload","AllowSort",True)
+Gui.frmPreview.gsgcUpload.SetGridviewProperty("gvUpload","AllowFilter",True)
+Gui.frmPreview.gsgcUpload.SetGridviewProperty("gvUpload","OptionsViewColumnAutoWidth",False)
+Gui.frmPreview.gsgcUpload.SetGridviewProperty("gvUpload","OptionsFindAlwaysVisible",True)
+Gui.frmPreview.gsgcUpload.SetGridviewProperty("gvUpload","OptionsViewShowAutoFilterRow",True)
+Gui.frmPreview.gsgcUpload.SetGridviewProperty("gvUpload","OptionsViewShowGroupPanel",True)
+
+
+V.Local.iVisibleIndex.Set(-1)
+Gui.frmPreview.gsgcUpload.SetColumnProperty("gvUpload","Date","VisibleIndex",V.Local.iVisibleIndex.++)
+Gui.frmPreview.gsgcUpload.SetColumnProperty("gvUpload","Date_Valid","VisibleIndex",V.Local.iVisibleIndex.++)
+Gui.frmPreview.gsgcUpload.SetColumnProperty("gvUpload","Employee","VisibleIndex",V.Local.iVisibleIndex.++)
+Gui.frmPreview.gsgcUpload.SetColumnProperty("gvUpload","Employee_Name","VisibleIndex",V.Local.iVisibleIndex.++)
+Gui.frmPreview.gsgcUpload.SetColumnProperty("gvUpload","Employee_Exists","VisibleIndex",V.Local.iVisibleIndex.++)
+Gui.frmPreview.gsgcUpload.SetColumnProperty("gvUpload","Employee_Active","VisibleIndex",V.Local.iVisibleIndex.++)
+Gui.frmPreview.gsgcUpload.SetColumnProperty("gvUpload","Job","VisibleIndex",V.Local.iVisibleIndex.++)
+Gui.frmPreview.gsgcUpload.SetColumnProperty("gvUpload","Suffix","VisibleIndex",V.Local.iVisibleIndex.++)
+Gui.frmPreview.gsgcUpload.SetColumnProperty("gvUpload","Job_Exists","VisibleIndex",V.Local.iVisibleIndex.++)
+Gui.frmPreview.gsgcUpload.SetColumnProperty("gvUpload","Job_Active","VisibleIndex",V.Local.iVisibleIndex.++)
+Gui.frmPreview.gsgcUpload.SetColumnProperty("gvUpload","Sequence","VisibleIndex",V.Local.iVisibleIndex.++)
+Gui.frmPreview.gsgcUpload.SetColumnProperty("gvUpload","Sequence_Exists","VisibleIndex",V.Local.iVisibleIndex.++)
+Gui.frmPreview.gsgcUpload.SetColumnProperty("gvUpload","Sequence_Active","VisibleIndex",V.Local.iVisibleIndex.++)
+Gui.frmPreview.gsgcUpload.SetColumnProperty("gvUpload","Workcenter","VisibleIndex",V.Local.iVisibleIndex.++)
+Gui.frmPreview.gsgcUpload.SetColumnProperty("gvUpload","Type","VisibleIndex",V.Local.iVisibleIndex.++)
+Gui.frmPreview.gsgcUpload.SetColumnProperty("gvUpload","Type_Valid","VisibleIndex",V.Local.iVisibleIndex.++)
+Gui.frmPreview.gsgcUpload.SetColumnProperty("gvUpload","Hours","VisibleIndex",V.Local.iVisibleIndex.++)
+
+Gui.frmPreview.gsgcUpload.SetColumnProperty("gvUpload","Employee_Exists","Caption","Exists")
+Gui.frmPreview.gsgcUpload.SetColumnProperty("gvUpload","Employee_Active","Caption","Active")
+Gui.frmPreview.gsgcUpload.SetColumnProperty("gvUpload","Job_Exists","Caption","Exists")
+Gui.frmPreview.gsgcUpload.SetColumnProperty("gvUpload","Job_Active","Caption","Active")
+Gui.frmPreview.gsgcUpload.SetColumnProperty("gvUpload","Sequence_Exists","Caption","Exists")
+Gui.frmPreview.gsgcUpload.SetColumnProperty("gvUpload","Sequence_Active","Caption","Active")
+Gui.frmPreview.gsgcUpload.SetColumnProperty("gvUpload","Type_Valid","Caption","Valid")
+Gui.frmPreview.gsgcUpload.SetColumnProperty("gvUpload","Date_Valid","Caption","Valid")
+Gui.frmPreview.gsgcUpload.SetColumnProperty("gvUpload","Date_String","Visible",False)
+Gui.frmPreview.gsgcUpload.SetColumnProperty("gvUpload","Date_String","AllowShowHide","False")
+Gui.frmPreview.gsgcUpload.SetColumnProperty("gvUpload","Closed","Visible",False)
+Gui.frmPreview.gsgcUpload.SetColumnProperty("gvUpload","Closed","AllowShowHide","False")
+Gui.frmPreview.gsgcUpload.SetColumnProperty("gvUpload","Start","Visible",False)
+Gui.frmPreview.gsgcUpload.SetColumnProperty("gvUpload","Start","AllowShowHide","False")
+Gui.frmPreview.gsgcUpload.SetColumnProperty("gvUpload","Stop","Visible",False)
+Gui.frmPreview.gsgcUpload.SetColumnProperty("gvUpload","Stop","AllowShowHide","False")
+Gui.frmPreview.gsgcUpload.SetColumnProperty("gvUpload","LMO","Visible",False)
+Gui.frmPreview.gsgcUpload.SetColumnProperty("gvUpload","LMO","AllowShowHide","False")
+Gui.frmPreview.gsgcUpload.SetColumnProperty("gvUpload","GoodPcs","Visible",False)
+Gui.frmPreview.gsgcUpload.SetColumnProperty("gvUpload","GoodPcs","AllowShowHide","False")
+Gui.frmPreview.gsgcUpload.SetColumnProperty("gvUpload","ScrapPcs","Visible",False)
+Gui.frmPreview.gsgcUpload.SetColumnProperty("gvUpload","ScrapPcs","AllowShowHide","False")
+Gui.frmPreview.gsgcUpload.SetColumnProperty("gvUpload","ScrapCode","Visible",False)
+Gui.frmPreview.gsgcUpload.SetColumnProperty("gvUpload","ScrapCode","AllowShowHide","False")
+Gui.frmPreview.gsgcUpload.SetColumnProperty("gvUpload","Date","DisplayCustomDateTime","d")
+
+Gui.frmPreview.gsgcUpload.AddStyleFormatCondition("gvUpload","Employee","ValidRow","Expression","[Employee_Exists] and [Employee_Active] and [Job_Exists] and [Job_Active] and [Sequence_Exists] and [Sequence_Active] and [Type_Valid] and [Date_Valid]")
+Gui.frmPreview.gsgcUpload.SetStyleFormatConditionProperty("gvUpload","Employee","ValidRow","BackColor","LightGreen")
+Gui.frmPreview.gsgcUpload.SetStyleFormatConditionProperty("gvUpload","Employee","ValidRow","ApplyToRow",True)
+Gui.frmPreview.gsgcUpload.AddStyleFormatCondition("gvUpload","Employee_Exists","EmployeeNotExists","Equal",False)
+Gui.frmPreview.gsgcUpload.SetStyleFormatConditionProperty("gvUpload","Employee_Exists","EmployeeNotExists","BackColor","Pink")
+Gui.frmPreview.gsgcUpload.AddStyleFormatCondition("gvUpload","Employee_Active","EmployeeNotActive","Equal",False)
+Gui.frmPreview.gsgcUpload.SetStyleFormatConditionProperty("gvUpload","Employee_Active","EmployeeNotActive","BackColor","Pink")
+Gui.frmPreview.gsgcUpload.AddStyleFormatCondition("gvUpload","Job_Exists","JobNotExists","Equal",False)
+Gui.frmPreview.gsgcUpload.SetStyleFormatConditionProperty("gvUpload","Job_Exists","JobNotExists","BackColor","Pink")
+Gui.frmPreview.gsgcUpload.AddStyleFormatCondition("gvUpload","Job_Active","JobNotActive","Equal",False)
+Gui.frmPreview.gsgcUpload.SetStyleFormatConditionProperty("gvUpload","Job_Active","JobNotActive","BackColor","Pink")
+Gui.frmPreview.gsgcUpload.AddStyleFormatCondition("gvUpload","Sequence_Exists","SequenceNotExists","Equal",False)
+Gui.frmPreview.gsgcUpload.SetStyleFormatConditionProperty("gvUpload","Sequence_Exists","SequenceNotExists","BackColor","Pink")
+Gui.frmPreview.gsgcUpload.AddStyleFormatCondition("gvUpload","Sequence_Active","SequenceNotActive","Equal",False)
+Gui.frmPreview.gsgcUpload.SetStyleFormatConditionProperty("gvUpload","Sequence_Active","SequenceNotActive","BackColor","Pink")
+Gui.frmPreview.gsgcUpload.AddStyleFormatCondition("gvUpload","Type_Valid","TypeNotValid","Equal",False)
+Gui.frmPreview.gsgcUpload.SetStyleFormatConditionProperty("gvUpload","Type_Valid","TypeNotValid","BackColor","Pink")
+Gui.frmPreview.gsgcUpload.AddStyleFormatCondition("gvUpload","Date_Valid","DateNotValid","Equal",False)
+Gui.frmPreview.gsgcUpload.SetStyleFormatConditionProperty("gvUpload","Date_Valid","DateNotValid","BackColor","Pink")
+
+F.Intrinsic.Control.CallSub("Deserialize")
+Gui.frmPreview.gsgcUpload.MainView("gvUpload")
+
+Gui.frmPreview.gsgcUpload.BestFitColumns("gvUpload")
+
+Gui.frmPreview..Show
+
+Program.Sub.DisplayGrid.End
+
+Program.Sub.Unload_Preview.Start
+' This program unloads the preview window
+
+' Hide the form
+Gui.frmPreview..Visible(0)
+F.Intrinsic.Control.CallSub("Serialize")
+' End the program
+F.Intrinsic.Control.End
+
+Program.Sub.Unload_Preview.End
+
+Program.Sub.cmdLoad_click.Start
+' This subroutine will create a flat file from the Time UDT and upload it using JB0455
+' Hide the Preview Form
+Gui.frmPreview..Visible(0)
+' Show the wait Dialog
+F.Intrinsic.UI.InvokeWaitDialog("Loading records to Global Shop!","Time Upload")
+' Create the File
+F.Intrinsic.Control.CallSub(Createfile)
+' Upload the File
+F.Intrinsic.Control.CallSub(Uploadfile)
+F.Intrinsic.Control.CallSub("Serialize")
+Program.Sub.cmdLoad_click.End
+
+Program.Sub.cmdExport_Click.Start
+V.Local.sForm.Declare(String,"frmPreview")
+V.Local.sControl.Declare(String,"gsgcUpload")
+V.Local.sFileExport.Declare
+V.Local.sMsg.Declare
+V.Local.sDate.Declare
+V.Local.sTime.Declare
+V.Local.bExcel.Declare
+V.Local.bFileLocked.Declare
+
+'Arc Number - 6022
+F.Automation.MSExcel.CheckPresence(V.Local.bExcel)
+F.Intrinsic.String.DateString(V.Ambient.Date,V.Local.sDate)
+F.Intrinsic.String.TimeString(V.Ambient.Time,V.Local.sTime)
+F.Intrinsic.Control.If(V.Local.bExcel)
+	F.Intrinsic.String.Build("{0}\GCG_6022_{1}_Export_{2}_{3}.xlsx",V.Caller.LocalGSSTempDir,V.Local.sControl,V.Local.sDate,V.Local.sTime,V.Local.sFileExport)
+	F.Intrinsic.File.IsFileLocked(V.Local.sFileExport,V.Local.bFileLocked)
+	F.Intrinsic.Control.If(V.Local.bFileLocked)
+		F.Intrinsic.String.Build("File is already open. Please close and export again.{0}File : {1}",V.Ambient.NewLine,V.Local.sFileExport,V.Local.sMsg)
+		F.Intrinsic.UI.Msgbox(V.Local.sMsg,"File In Use")
+	F.Intrinsic.Control.Else
+		Gui.[V.Local.sForm].[V.Local.sControl].Export(V.Local.sFileExport,"xlsx")
+		F.Intrinsic.Task.ShellExec(0,"",V.Local.sFileExport,"","",1)
+	F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.Else
+	F.Intrinsic.String.Build("{0}\GCG_6022_{1}_Export_{2}_{3}.csv",V.Caller.LocalGssTempDir,V.Local.sControl,V.Local.sDate,V.Local.sTime,V.Local.sFileExport)
+	F.Intrinsic.File.IsFileLocked(V.Local.sFileExport,V.Local.bFileLocked)
+	F.Intrinsic.Control.If(V.Local.bFileLocked)
+		F.Intrinsic.String.Build("File is already open. Please close and export again.{0}File: {1}",V.Ambient.NewLine,V.Local.sFileExport,V.Local.sMsg)
+		F.Intrinsic.UI.Msgbox(V.Local.sMsg,"File In Use")
+	F.Intrinsic.Control.Else
+		Gui.[V.Local.sForm].[V.Local.sControl].Export(V.Local.sFileExport,"csv")
+	F.Intrinsic.Control.EndIf
+	F.Intrinsic.Task.ShellExec(0,"",V.Local.sFileExport,"","",1)
+F.Intrinsic.Control.EndIf
+
+Program.Sub.cmdExport_Click.End
+
+Program.Sub.txtFile_DragDropFile.Start
+V.Local.sFiles.Declare
+V.Local.sExt.Declare
+V.Local.sWorksheets.Declare
+V.Local.iFor.Declare
+
+F.Intrinsic.String.Split(V.Args.Files,"*!*",V.Local.sFiles)
+
+F.Intrinsic.Control.If(V.Local.sFiles.UBound,>,0)
+	F.Intrinsic.UI.Msgbox("Only one file can be dragged and dropped to the text box.")
+	F.Intrinsic.Control.ExitSub
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.String.Split(V.Args.Files,".",V.Local.sExt)
+
+F.Intrinsic.Control.If(V.Local.sExt.UBound,=,0)
+	F.Intrinsic.UI.Msgbox("File type is not '.xls' or '.xlsx'.")
+	F.Intrinsic.Control.ExitSub
+F.Intrinsic.Control.ElseIf(V.Local.sExt(V.Local.sExt.UBound),!=,"xls",and,V.Local.sExt(V.Local.sExt.UBound),!=,"xlsx")
+	F.Intrinsic.UI.Msgbox("File type is not '.xls' or '.xlsx'.")
+	F.Intrinsic.Control.ExitSub
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.BlockEvents
+
+Gui.frmSelect.txtFile.Text(V.Args.Files)
+
+' Create the Excel Object
+F.Automation.MSExcel.CreateAppObject("MSExcel")
+' Open the Workbook
+F.Automation.MSExcel.OpenWorkbook("MSExcel","Timesheet",V.Args.Files)
+' Get the Worksheet Names
+F.Automation.MSExcel.EnumerateWorksheets("Timesheet",v.Local.sWorksheets)
+' Split the worksheet string
+F.Intrinsic.String.Split(V.Local.sWorksheets,"*!*",V.Local.sWorksheets)
+' Add the worksheet names to the combo box
+F.Intrinsic.Control.For(V.Local.iFor,V.Local.sWorksheets.LBound,V.Local.sWorksheets.UBound,1)
+	Gui.frmSelect.comboSheet.AddItem(V.Local.sWorksheets(v.Local.iFor))
+F.Intrinsic.Control.Next(V.Local.iFor)
+F.Automation.MSExcel.OpenWorksheet("Timesheet","Worksheet1",1)
+' Destroy the Excel Objects
+F.Automation.MSExcel.DestroyAllObjects("MSExcel","Timesheet","Worksheet1")
+' Default to the first sheet
+Gui.frmSelect.comboSheet.ListIndex(0)
+
+F.Intrinsic.Control.UnBlockEvents
+Program.Sub.txtFile_DragDropFile.End
+
+Program.Sub.Serialize.Start
+F.Intrinsic.Control.Try
+	V.Local.sError.Declare
+	
+	V.Local.sSerialize.Declare
+	
+	'gvupload
+	Gui.frmPreview.gsgcUpload.Serialize("GVUPLOAD",V.Local.sSerialize)
+	F.Global.Registry.AddValue(V.Caller.User,V.Caller.CompanyCode,"GVUPLOAD",6022,1000,False,"Serialize",False,0,-999.0,1/1/1980,12:00:00 AM,V.Local.sSerialize)
+	
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.CallSub("Unload")
+F.Intrinsic.Control.EndTry
+Program.Sub.Serialize.End
+
+Program.Sub.Deserialize.Start
+F.Intrinsic.Control.Try
+	V.Local.sError.Declare
+	
+	V.Local.sSerialize.Declare
+	
+	'Delete old registry records
+	F.Global.Registry.ReadValue(V.Caller.User,V.Caller.CompanyCode,"GVUPLOAD",6022,0,5,"",V.Local.sSerialize)
+	F.Intrinsic.Control.If(V.Local.sSerialize,<>,"")
+		F.ODBC.Connection!common.OpenConnection(V.Ambient.Ccon,V.Ambient.Cuser,V.Ambient.Cpass)
+		F.ODBC.Connection!common.Execute("Delete From Gs_Registry Where Reg_ID = 6022 And Seq < 1000;")
+		F.ODBC.Connection!common.Close
+	F.Intrinsic.Control.EndIf
+
+	'gvupload
+	F.Global.Registry.ReadValue(V.Caller.User,V.Caller.CompanyCode,"GVUPLOAD",6022,1000,6,"",V.Local.sSerialize)
+	F.Intrinsic.Control.If(V.Local.sSerialize,<>,"")
+		Gui.frmPreview.gsgcUpload.Deserialize(V.Local.sSerialize)
+	F.Intrinsic.Control.EndIf
+	
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.CallSub("Unload")
+F.Intrinsic.Control.EndTry
+Program.Sub.Deserialize.End
+
+Program.Sub.Unload.Start
+f.Intrinsic.Control.Try
+	v.Local.sError.Declare
+
+	F.Intrinsic.Control.If(V.ODBC.con.State,=,1)
+		F.ODBC.Connection!con.close
+	F.Intrinsic.Control.EndIf
+	
+	f.Intrinsic.Control.End
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}Subroutine: {2}{1}Subroutine called from:{6}{1}Error Occurred: {3}{1}Description: {4}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,v.Ambient.SubroutineCalledFrom,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End	
+F.Intrinsic.Control.EndTry
+Program.Sub.Unload.End
+
+Program.Sub.Comments.Start
+${$5$}$20.1.8641.23525$}$1
+${$6$}$bbaker$}$20230918131055871$}$pM7xsHplA2E9VCTenDTJ47gi1rF/t66W9p0PqZ/isqdwnedUtQDg5nCUWXjHq34xCosJzwOyfto=
+Program.Sub.Comments.End
